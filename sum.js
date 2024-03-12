@@ -9,8 +9,10 @@ TODO:
 class Calculator { 
 	calculator() {
 		this.ans = "";
+		this.ansString = "";
+		this.result = 0;
 	}
-	
+	/*
 	//string of last answer
 	this.ansString = "";
 	//numeric value of last answer
@@ -22,16 +24,16 @@ class Calculator {
 	const subString = "-";
 	const multString = "*";
 	const divString = "/";
-	
+	*/
 	clearMemory() {
 		this.ans = "";
 	}
 	
 	multiply(a, b) {
-		this.ans = a * b;
-		this.result = ans;
-		this. ansString = saveAns(`${a} * ${b}`, "*");
-		console.log(this.ans);
+		this.ans = a + " * " + b;
+		this.result = a * b;
+		this.ansString = this.saveAns(this.ans, "*");
+		console.log(this.ans + " = " + (a*b));
 	}
 	
 	saveAns(operationValue, operation) {
@@ -44,6 +46,10 @@ class Calculator {
 		
 	}
 }
+
+const calculator = new Calculator();
+
+calculator.multiply(1,2);
 
 
 function sum(a, b) {
