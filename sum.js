@@ -9,30 +9,60 @@ TODO:
 class Calculator { 
 	calculator() {
 		this.ans = "";
-		this.ansString = "";
 		this.result = 0;
 	}
-	/*
-	//string of last answer
-	this.ansString = "";
-	//numeric value of last answer
-	this.ans = "";
-	//numeric
-	this.result = 0;
 	
-	const sumString = "+";
-	const subString = "-";
-	const multString = "*";
-	const divString = "/";
-	*/
 	clearMemory() {
 		this.ans = "";
 	}
 	
+	//estas operaciones son entre el result anterior y el nuevo valor
+	mult(c) {
+		this.saveAns(this.ans + " * " + c, "*");
+		this.result = this.result * c;
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	div(c) {
+		this.saveAns("Ans / " + c, "/");
+		this.result = this.result / c;
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	sub(c) {
+		this.saveAns("Ans - " + c, "-");
+		this.result = this.result - c;
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	sm(c) {
+		this.saveAns("Ans + " + c, "+");
+		this.result = this.result + c;
+		console.log(this.ans + " = " + this.result);
+	}
+	//estas operaciones son entre los dos valores sólamente
 	multiply(a, b) {
 		this.saveAns(a + " * " + b, "*");
 		this.result = a * b;
-		console.log(this.ans + " = " + (a*b));
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	divide(a, b) {
+		this.saveAns(a + " / " + b, "/");
+		this.result = a / b;
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	substract(a, b) {
+		this.saveAns(a + " - " + b, "-");
+		this.result = a - b;
+		console.log(this.ans + " = " + this.result);
+	}
+	
+	sum(a, b) {
+		this.saveAns(a + " + " + b, "+");
+		this.result = a + b;
+		console.log(this.ans + " = " + this.result);
 	}
 	
 	saveAns(operationValue, operation) {
@@ -46,10 +76,18 @@ class Calculator {
 	}
 }
 
+//creación del objeto calculator
 const calculator = new Calculator();
-
+//operaciones entre 2 valores
 calculator.multiply(1,2);
-
+calculator.divide(2,1);
+calculator.substract(2,1);
+calculator.sum(1,2);
+//operaciones entre result y un nuevo valor
+calculator.mult(2);
+calculator.div(2);
+//calculator.substract(2,1);
+//calculator.sum(1,2);
 
 function sum(a, b) {
   return a + b;
